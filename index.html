@@ -1,12 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-  </head>
-  <body>
-    <main>
-        <h1>Hello world</h1>  
-    </main>
+<html>
+<head>
+  <title>Flashing Dot</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <button onclick="toggleControls()">Hide Controls</button>
+  <div id="controls">
+    <div>
+      <label for="dot-size-input">Dot Size:</label>
+      <input type="number" id="dot-size-input" onchange="changeDotSize()">
+    </div>
+    <div>
+      <label for="flash-speed-input">Flash Speed (ms):</label>
+      <input type="number" id="flash-speed-input" onchange="changeFlashSpeed()">
+    </div>
+    <div>
+      <label for="dot-color-input">Dot Color:</label>
+      <input type="color" id="dot-color-input" value="#000000" onchange="changeDotColor()">
+    </div>
+    <div>
+      <label for="background-color-input">Background Color:</label>
+      <input type="color" id="background-color-input" value="#FFFFFF" onchange="changeBackgroundColor()">
+    </div>
+    <button onclick="toggleFlash()">Toggle Flashing</button>
+  </div>
 
-  </body>
+  <div id="content">
+    <span class="dot"></span>
+  </div>
+
+  <script>
+    function toggleControls() {
+      var controlsBox = document.querySelector('#controls');
+      if (controlsBox.style.opacity === '0') {
+        controlsBox.style.opacity = '1';
+      } else {
+        controlsBox.style.opacity = '0';
+      }
+    }
+
+
+    function toggleFlash() {
+      var dot = document.querySelector('.dot');
+      dot.classList.toggle('flash');
+    }
+
+    function changeDotSize() {
+      var dot = document.querySelector('.dot');
+      var sizeInput = document.querySelector('#dot-size-input');
+      dot.style.width = sizeInput.value + 'px';
+      dot.style.height = sizeInput.value + 'px';
+    }
+
+    function changeFlashSpeed() {
+      var dot = document.querySelector('.dot');
+      var speedInput = document.querySelector('#flash-speed-input');
+      dot.style.animationDuration = speedInput.value + 'ms';
+    }
+
+    function changeDotColor() {
+      var dot = document.querySelector('.dot');
+      var color = document.querySelector('#dot-color-input').value;
+      dot.style.backgroundColor = color;
+    }
+
+    function changeBackgroundColor() {
+      var body = document.querySelector('body');
+      var color = document.querySelector('#background-color-input').value;
+      body.style.backgroundColor = color;
+    }
+  </script>
+</body>
 </html>
