@@ -4,7 +4,7 @@
   <title>Flashing Dot</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body onload="initialize()">
   <div id="controls">
     <div>
       <label for="dot-size-input">Dot Size:</label>
@@ -30,6 +30,13 @@
   </div>
 
   <script>
+    function initialize() {
+      localStorage.setItem('size', 20);
+      localStorage.setItem('speed', 1000);
+      localStorage.setItem('dotColor', "#000000");
+      localStorage.setItem('backColor', "#ffffff");
+    }
+
     function toggleFlash() {
       var dot = document.querySelector('.dot');
       dot.classList.toggle('flash');
@@ -54,15 +61,14 @@
       var dot = document.querySelector('.dot');
       var color = document.querySelector('#dot-color-input').value;
       dot.style.backgroundColor = color;
-      localStorage.setItem('dotColor', color.value);
-      console.log(color);
+      localStorage.setItem('dotColor', color);
     }
 
     function changeBackgroundColor() {
       var body = document.querySelector('body');
       var color = document.querySelector('#background-color-input').value;
       body.style.backgroundColor = color;
-      localStorage.setItem('backColor', color.value);
+      localStorage.setItem('backColor', color);
     }
   </script>
 </body>
