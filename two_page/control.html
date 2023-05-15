@@ -100,7 +100,9 @@
       var dot = document.querySelector('.dot');
       var controlsBox = document.querySelector('#controls');
       var hideControls = document.querySelector('#hide-controls-button');
-      if (event.target !== controlsBox && event.target !== hideControls && !controlsBox.contains(event.target)) {
+      var isDescendantOfControls = controlsBox.contains(event.target);
+
+      if (event.target !== controlsBox && event.target !== hideControls && !isDescendantOfControls) {
         var x = event.pageX;
         var y = event.pageY;
         dot.style.left = x + 'px';
@@ -109,6 +111,7 @@
         localStorage.setItem('y', y);
       }
     });
+
 
 
     function moveDot() {
