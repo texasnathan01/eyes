@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flashing Dot</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="updater()">
+  <div id="content">
+    <span class="dot"></span>
+  </div>
+
+  <script>
+    function updater() {
+      setInterval(changeDotSize, 1000);
+      setInterval(changeFlashSpeed, 1000);
+      setInterval(changeDotColor, 1000);
+      setInterval(changeBackgroundColor, 1000);
+    }
+
+    function toggleFlash() {
+      var dot = document.querySelector('.dot');
+      dot.classList.toggle('flash');
+    }
+
+    function changeDotSize() {
+      var dot = document.querySelector('.dot');
+      var sizeInput = localStorage.getItem('size');
+      dot.style.width = sizeInput + 'px';
+      dot.style.height = sizeInput + 'px';
+    }
+
+    function changeFlashSpeed() {
+      var dot = document.querySelector('.dot');
+      var speedInput = localStorage.getItem('speed');
+      dot.style.animationDuration = speedInput + 'ms';
+    }
+
+    function changeDotColor() {
+      var dot = document.querySelector('.dot');
+      var sizeInput = localStorage.getItem('dotColor');
+      dot.style.backgroundColor = color;
+    }
+
+    function changeBackgroundColor() {
+      var body = document.querySelector('body');
+      var sizeInput = localStorage.getItem('backColor');
+      body.style.backgroundColor = color;
+    }
+  </script>
+</body>
+</html>
