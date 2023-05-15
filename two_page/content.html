@@ -11,6 +11,7 @@
 
   <script>
     function updater() {
+      setInterval(toggleFlash, 100);
       setInterval(changeDotSize, 100);
       setInterval(changeFlashSpeed, 100);
       setInterval(changeDotColor, 100);
@@ -20,7 +21,12 @@
 
     function toggleFlash() {
       var dot = document.querySelector('.dot');
-      dot.classList.toggle('flash');
+      var flashing = localStorage.getItem('flashing');
+      if (flashing == 0) {
+        dot.classList.remove('flash');
+      } else {
+        dot.classList.add('flash');
+      }
     }
 
     function changeDotSize() {

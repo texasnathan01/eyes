@@ -41,6 +41,7 @@
 
   <script>
     function initialize() {
+      localStorage.setItem('flashing', 0);
       localStorage.setItem('size', 20);
       localStorage.setItem('speed', 1000);
       localStorage.setItem('dotColor', "#000000");
@@ -51,7 +52,13 @@
 
     function toggleFlash() {
       var dot = document.querySelector('.dot');
-      dot.classList.toggle('flash');
+      if (dot.classList.contains('flash')) {
+        dot.classList.remove('flash');
+        localStorage.setItem('flashing', 0);
+      } else {
+        dot.classList.add('flash');
+        localStorage.setItem('flashing', 1);
+      }
     }
 
     function changeDotSize() {
