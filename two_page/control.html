@@ -22,6 +22,16 @@
       <label for="background-color-input">Background Color:</label>
       <input type="color" id="background-color-input" value="#FFFFFF" onchange="changeBackgroundColor()">
     </div>
+
+    <div>
+      <label for="x-coordinate-input">X-coordinate:</label>
+      <input type="number" id="x-coordinate-input" onchange="moveDot()">
+    </div>
+    <div>
+      <label for="y-coordinate-input">Y-coordinate:</label>
+      <input type="number" id="y-coordinate-input" onchange="moveDot()">
+    </div>
+
     <button onclick="toggleFlash()">Toggle Flashing</button>
   </div>
 
@@ -69,6 +79,18 @@
       var color = document.querySelector('#background-color-input').value;
       body.style.backgroundColor = color;
       localStorage.setItem('backColor', color);
+    }
+
+    function moveDot() {
+      var dot = document.querySelector('.dot');
+      var xInput = document.querySelector('#x-coordinate-input');
+      var yInput = document.querySelector('#y-coordinate-input');
+      var x = parseInt(xInput.value);
+      var y = parseInt(yInput.value);
+      dot.style.left = x + 'px';
+      dot.style.top = y + 'px';
+      localStorage.setItem('x', x);
+      localStorage.setItem('y', y);
     }
   </script>
 </body>

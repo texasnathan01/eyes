@@ -15,6 +15,7 @@
       setInterval(changeFlashSpeed, 100);
       setInterval(changeDotColor, 100);
       setInterval(changeBackgroundColor, 100);
+      setInterval(moveDot, 100);
     }
 
     function toggleFlash() {
@@ -45,6 +46,15 @@
       var body = document.querySelector('body');
       var color = localStorage.getItem('backColor');
       body.style.backgroundColor = color;
+    }
+
+    function moveDot() {
+      var dot = document.querySelector('.dot');
+      var x = localStorage.getItem('x');
+      var y = localStorage.getItem('y');
+      console.log(x);
+      dot.style.left = x + 'px';
+      dot.style.top = y + 'px';
     }
   </script>
 </body>
