@@ -103,8 +103,8 @@
       var isDescendantOfControls = controlsBox.contains(event.target);
 
       if (event.target !== controlsBox && event.target !== hideControls && !isDescendantOfControls) {
-        var x = event.pageX;
-        var y = event.pageY;
+        var x = event.pageX - dot.offsetWidth / 2;
+        var y = event.pageY - dot.offsetHeight / 2;
         dot.style.left = x + 'px';
         dot.style.top = y + 'px';
         localStorage.setItem('x', x);
