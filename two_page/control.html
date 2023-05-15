@@ -50,16 +50,11 @@
       localStorage.setItem('x', 300);
       localStorage.setItem('y', 300);
 
+      // Set default values in the input boxes
       document.getElementById('dot-size-input').value = localStorage.getItem('size');
       document.getElementById('flash-speed-input').value = localStorage.getItem('speed');
       document.getElementById('dot-color-input').value = localStorage.getItem('dotColor');
       document.getElementById('background-color-input').value = localStorage.getItem('backColor');
-
-      setInterval(updateControlVals, 10);
-      
-    }
-
-    function updateControlVals(){
       document.getElementById('x-coordinate-input').value = localStorage.getItem('x');
       document.getElementById('y-coordinate-input').value = localStorage.getItem('y');
     }
@@ -122,6 +117,8 @@
         dot.style.top = y + 'px';
         localStorage.setItem('x', x);
         localStorage.setItem('y', y);
+        document.getElementById('x-coordinate-input').value = localStorage.getItem('x');
+        document.getElementById('y-coordinate-input').value = localStorage.getItem('y');
       }
     });
 
