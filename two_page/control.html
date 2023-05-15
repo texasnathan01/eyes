@@ -98,12 +98,16 @@
 
     document.addEventListener('click', function(event) {
       var dot = document.querySelector('.dot');
-      var x = event.pageX;
-      var y = event.pageY;
-      dot.style.left = x + 'px';
-      dot.style.top = y + 'px';
-      localStorage.setItem('x', x);
-      localStorage.setItem('y', y);
+      var controlsBox = document.querySelector('#controls');
+      var hideControls = document.querySelector('#hide-controls-button');
+      if (event.target !== controlsBox && event.target !== hideControls && !controlsBox.contains(event.target)) {
+        var x = event.pageX;
+        var y = event.pageY;
+        dot.style.left = x + 'px';
+        dot.style.top = y + 'px';
+        localStorage.setItem('x', x);
+        localStorage.setItem('y', y);
+      }
     });
 
 
