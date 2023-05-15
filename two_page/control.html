@@ -53,11 +53,7 @@
 
     function toggleControls() {
       var controlsBox = document.querySelector('#controls');
-      if (controlsBox.style.opacity === '0') {
-        controlsBox.style.opacity = '1';
-      } else {
-        controlsBox.style.opacity = '0';
-      }
+      controlsBox.classList.toggle('hidden');
     }
 
     function toggleFlash() {
