@@ -45,6 +45,8 @@
       localStorage.setItem('speed', 1000);
       localStorage.setItem('dotColor', "#000000");
       localStorage.setItem('backColor', "#ffffff");
+      localStorage.setItem('x', 300);
+      localStorage.setItem('y', 300);
     }
 
     function toggleFlash() {
@@ -80,6 +82,17 @@
       body.style.backgroundColor = color;
       localStorage.setItem('backColor', color);
     }
+
+    document.addEventListener('click', function(event) {
+      var dot = document.querySelector('.dot');
+      var x = event.pageX;
+      var y = event.pageY;
+      dot.style.left = x + 'px';
+      dot.style.top = y + 'px';
+      localStorage.setItem('x', x);
+      localStorage.setItem('y', y);
+    });
+
 
     function moveDot() {
       var dot = document.querySelector('.dot');
