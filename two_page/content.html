@@ -11,10 +11,10 @@
 
   <script>
     function updater() {
-      setInterval(changeDotSize, 1000);
-      setInterval(changeFlashSpeed, 1000);
-      setInterval(changeDotColor, 1000);
-      setInterval(changeBackgroundColor, 1000);
+      setInterval(changeDotSize, 100);
+      setInterval(changeFlashSpeed, 100);
+      setInterval(changeDotColor, 100);
+      setInterval(changeBackgroundColor, 100);
     }
 
     function toggleFlash() {
@@ -37,13 +37,13 @@
 
     function changeDotColor() {
       var dot = document.querySelector('.dot');
-      var sizeInput = localStorage.getItem('dotColor');
+      var color = localStorage.getItem('dotColor');
       dot.style.backgroundColor = color;
     }
 
     function changeBackgroundColor() {
       var body = document.querySelector('body');
-      var sizeInput = localStorage.getItem('backColor');
+      var color = localStorage.getItem('backColor');
       body.style.backgroundColor = color;
     }
   </script>
