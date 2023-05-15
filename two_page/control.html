@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body onload="initialize()">
+  <button id="hide-controls-button" onclick="toggleControls()">Hide Controls</button>
   <div id="controls">
     <div>
       <label for="dot-size-input">Dot Size:</label>
@@ -48,6 +49,15 @@
       localStorage.setItem('backColor', "#ffffff");
       localStorage.setItem('x', 300);
       localStorage.setItem('y', 300);
+    }
+
+    function toggleControls() {
+      var controlsBox = document.querySelector('#controls');
+      if (controlsBox.style.opacity === '0') {
+        controlsBox.style.opacity = '1';
+      } else {
+        controlsBox.style.opacity = '0';
+      }
     }
 
     function toggleFlash() {

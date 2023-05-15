@@ -2,6 +2,13 @@ body {
   overflow: hidden; /* Hide scrollbars */
 }
 
+#hide-controls-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 9999;
+}
+
 #content {
   display: flex;
   justify-content: center;
@@ -11,11 +18,13 @@ body {
 }
 
 #controls {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
+  position: fixed;
+  top: 50px;
+  left: 10px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .dot {
