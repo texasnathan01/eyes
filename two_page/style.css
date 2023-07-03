@@ -54,6 +54,7 @@ body {
   border-radius: 50%;
   display: inline-block;
   animation: blink 1s infinite;
+  transition: background-color 1.5s ease; /* Added transition for dot color */
 }
 
 .dot.flash {
