@@ -32,8 +32,11 @@
       <label for="y-coordinate-input">Y-coordinate:</label>
       <input type="number" id="y-coordinate-input" onchange="moveDot()">
     </div>
+    <div>
+      <button onclick="toggleDisclaimer()">Toggle Disclaimer</button>  
+      <button onclick="toggleFlash()">Toggle Flashing</button>
+    </div>
 
-    <button onclick="toggleFlash()">Toggle Flashing</button>
   </div>
 
   <div id="content">
@@ -49,6 +52,7 @@
       localStorage.setItem('backColor', "#ffffff");
       localStorage.setItem('x', 300);
       localStorage.setItem('y', 300);
+      localStorage.setItem('disclaimer', 0)
 
       // Set default values in the input boxes
       document.getElementById('dot-size-input').value = localStorage.getItem('size');
@@ -74,6 +78,19 @@
         localStorage.setItem('flashing', 1);
       }
     }
+
+    function toggleDisclaimer() {
+    var dot = document.querySelector('.dot');
+    if (localStorage.getItem('disclaimer') == 0) {
+      localStorage.setItem('disclaimer', 1);
+      setTimeout(function() {
+        localStorage.setItem('disclaimer', 0);
+      }, 5000); // Revert back after 5 seconds (5000 milliseconds)
+    } else {
+      localStorage.setItem('disclaimer', 0);
+    }
+  }
+
 
     function changeDotSize() {
       var dot = document.querySelector('.dot');

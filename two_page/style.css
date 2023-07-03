@@ -9,6 +9,15 @@ body {
   z-index: 9999;
 }
 
+#disclaimerBox {
+  color: white;
+  background-color: black;
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  text-align: center;
+}
+
 #content {
   display: flex;
   justify-content: center;

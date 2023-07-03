@@ -5,18 +5,32 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body onload="updater()">
+  <div id="disclaimerBox">
+    WARNING: THIS PROGRAM CONTAINS FLASHING LIGHTS WHICH MAY NOT BE SUITABLE FOR PEOPLE WITH PHOTOSENSITIVE EPILEPSY.
+  </div>
   <div id="content">
     <span class="dot"></span>
   </div>
 
   <script>
     function updater() {
+      setInterval(toggleDisclaimer, 10);
       setInterval(toggleFlash, 10);
       setInterval(changeDotSize, 10);
       setInterval(changeFlashSpeed, 10);
       setInterval(changeDotColor, 10);
       setInterval(changeBackgroundColor, 10);
       setInterval(moveDot, 10);
+    }
+
+    function toggleDisclaimer() {
+      var disclaimer = localStorage.getItem('disclaimer');
+      var disclaimerBox = document.getElementById('disclaimerBox');
+      if (disclaimer == 1) {
+        disclaimerBox.removeAttribute('hidden');
+      } else {
+        disclaimerBox.setAttribute('hidden', '');
+      }
     }
 
     function toggleFlash() {
