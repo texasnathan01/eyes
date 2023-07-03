@@ -18,7 +18,7 @@
       setInterval(toggleFlash, 10);
       setInterval(changeDotSize, 10);
       setInterval(changeFlashSpeed, 10);
-      setInterval(changeDotColor, 10);
+      setInterval(changeDotColor, 250);
       setInterval(changeBackgroundColor, 10);
       setInterval(moveDot, 10);
     }
@@ -56,11 +56,15 @@
       dot.style.animationDuration = speedInput + 'ms';
     }
 
-    function changeDotColor() {
-      var dot = document.querySelector('.dot');
-      var color = localStorage.getItem('dotColor');
-      dot.style.backgroundColor = color;
-    }
+function changeDotColor() {
+  var dot = document.querySelector('.dot');
+  var color = localStorage.getItem('dotColor');
+
+  // Only apply color change if there is an actual change in the color value
+  if (dot.style.backgroundColor !== color) {
+    dot.style.backgroundColor = color;
+  }
+}
 
     function changeBackgroundColor() {
       var body = document.querySelector('body');
